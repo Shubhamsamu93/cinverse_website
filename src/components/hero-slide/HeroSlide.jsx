@@ -10,7 +10,7 @@ import tmdbApi, { category, movieType } from "./../../api/tmdbApi";
 import apiConfig from "./../../api/apiConfig";
 
 import "./hero-slide.scss";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 import * as Config from "./../../constants/Config";
 
@@ -64,7 +64,7 @@ const HeroSlide = () => {
 };
 
 const HeroSlideItem = (props) => {
-  let history = useHistory();
+  let navigate = useNavigate();
 
   const item = props.item;
 
@@ -101,7 +101,7 @@ const HeroSlideItem = (props) => {
           <div className="btns">
             <Button
               onClick={() =>
-                history.push(`/${Config.HOME_PAGE}/movie/` + item.id)
+                navigate(`/${Config.HOME_PAGE}/movie/` + item.id)
               }
             >
               Watch now
