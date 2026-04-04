@@ -5,8 +5,6 @@ import Home from "../pages/Home";
 import Catalog from "../pages/Catalog";
 import Detail from "../pages/detail/Detail";
 
-import * as Config from "../constants/Config";
-
 const Routes = () => {
   return (
     <ReactRoutes>
