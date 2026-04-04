@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Routes as ReactRoutes, Route } from "react-router-dom";
 
 import Home from "../pages/Home";
 import Catalog from "../pages/Catalog";
@@ -9,15 +9,15 @@ import * as Config from "../constants/Config";
 
 const Routes = () => {
   return (
-    <Switch>
+    <ReactRoutes>
       <Route
-        path={`/${Config.HOME_PAGE}/:category/search/:keyword`}
-        component={Catalog}
+        path={`/:category/search/:keyword`}
+        element={<Catalog />}
       />
-      <Route path={`/${Config.HOME_PAGE}/:category/:id`} component={Detail} />
-      <Route path={`/${Config.HOME_PAGE}/:category`} component={Catalog} />
-      <Route path={`/${Config.HOME_PAGE}`} exact component={Home} />
-    </Switch>
+      <Route path={`/:category/:id`} element={<Detail />} />
+      <Route path={`/:category`} element={<Catalog />} />
+      <Route path={`/`} element={<Home />} />
+    </ReactRoutes>
   );
 };
 
